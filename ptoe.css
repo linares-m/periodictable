@@ -1,0 +1,121 @@
+body {
+  background-color: darkblue;
+  color:white;
+}
+
+h1, h2, p {
+ font-family: 'Roboto Slab';
+}
+
+text {
+  font-family: "Arbutus Slab";
+  background-color: white;
+}
+
+text:hover {
+  cursor: default;
+}
+
+g:hover {
+  outline: 2px solid lightgreen;
+}
+
+
+
+#appContainer {
+  display:grid;
+  grid: 'ip ma';
+  grid-auto-columns: min-content;
+  grid-gap: 5px;
+/*  outline:2px solid white;*/
+  width: fit-content;
+  height: 100vh;
+}
+
+.infoPane {
+  grid-area: ip;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  outline: 5px solid black;
+  width: 15vw;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.infoPane header {
+  display:block;
+  width: 96%;
+  height: fit-content;
+  min-height: 30px;
+  position:absolute;
+  top:1%;
+/*  outline: 1px solid black;*/
+  margin: auto;
+  padding:2px;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+
+
+#infoReader  {
+  position: absolute;
+  top: 15%;
+  width: 95%;
+  height: 60%;
+  border-bottom: 2px solid black;
+  outline: none;
+  padding: 4px;
+  margin: auto;
+}
+
+
+#helpAbout {
+  position:absolute;
+  top: 80%;
+  width:95%;
+  height:10%;
+  display: flex;
+  flex-direction: column;
+/*  outline: 1px black solid; */
+  font-size: 14px;
+}
+
+#helpAbout details:hover{
+  cursor: default;
+  text-decoration-style: wavy;
+}
+ .mainArea{
+  grid-area: ma;
+  width: fit-content;
+  height: 100vh;
+  position: relative;
+  overflow: auto;
+  background-color: hsla(0,100%,50%, .2);
+  outline: 5px solid black;
+}
+
+#ptoe {
+  display: block;
+  margin: auto;
+}
+
+#appHeader {
+  position: absolute;
+  top:-20px;
+  left: 30%;
+  z-index:1;
+  font-size: 25px;
+  margin: 10px;
+}
+
+#categoryMenu {
+  position: absolute;
+  top: 75px;
+  left: 32%;
+  z-index: 1;
+}
+
+ #categoryMenu ul {
+}
