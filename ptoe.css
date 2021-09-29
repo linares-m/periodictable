@@ -57,11 +57,13 @@ g:hover {
   border-bottom: 2px solid black;
 }
 
+
+
 #infoReader  {
   position: absolute;
-  top: 15%;
+  top: 8%;
   width: 95%;
-  height: 60%;
+  height: 72%;
   border-bottom: 2px solid black;
   outline: none;
   padding: 4px;
@@ -71,7 +73,7 @@ g:hover {
 
 #helpAbout {
   position:absolute;
-  top: 80%;
+  top: 85%;
   width:95%;
   height:10%;
   display: flex;
@@ -123,7 +125,6 @@ g:hover {
 }
 
 .infoPane::-webkit-scrollbar {
-
     background-color: #000000;
     border-radius: 10px;
 }
@@ -133,3 +134,7 @@ g:hover {
     border-radius: 10px;
     border:2px solid  white;
 }
+
+
+
+/*element rects adjustments*/
