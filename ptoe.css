@@ -79,7 +79,7 @@ g:hover {
   display: flex;
   flex-direction: column;
 /*  outline: 1px black solid; */
-  font-size: 14px;
+  font-size: 20px;
 }
 
 #helpAbout details:hover{
@@ -92,7 +92,7 @@ g:hover {
   height: 100vh;
   position: relative;
   overflow: auto;
-  background-color: hsla(0,100%,50%, .2);
+  background-color: hsla(0,100%,20%, .5);
   outline: 5px solid black;
 }
 
@@ -119,3 +119,21 @@ g:hover {
 
  #categoryMenu ul {
 }
+
+.Fr text, .Cs text,  .Ra text, .Pb text, .Rh text, .Pd text, .Ir text, .Og text, .Uue text, .Lu text, .Yb text, .Ba text   {
+  fill: lightgray;
+}
+
+.infoPane::-webkit-scrollbar {
+
+    background-color: #000000;
+    border-radius: 10px;
+}
+
+.infoPane::-webkit-scrollbar-thumb {
+    background-color: #0077a7;
+    border-radius: 10px;
+    border:2px solid  white;
+}
+
+/
