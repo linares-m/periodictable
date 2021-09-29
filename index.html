@@ -1,12 +1,8 @@
-<!--
-TODOS:
-P1 items:
-1.  Add screen reading compatibility to each element
--->
 
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+	<script src="https://d3js.org/d3.v7.min.js"></script>
 	<script type="text/javascript" src="ptoe.js" defer></script>
 	<link rel="stylesheet" href="ptoe.css"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus+Slab"/>
@@ -18,14 +14,9 @@ P1 items:
 	<body>
 		<div id="appContainer">
 			<main class="infoPane">
-				<header><h1>Info Pane<h1></header>
-					<p id="infoReader" class="infoPane"></p>
+		<!--		<header><h1>Info Pane<h1></header> -->
+					<p id="infoReader" class="infoPane">Click on an element to see info about the element.</p>
 					<section id="helpAbout">
-						<details closed id="help">
-							<summary>Help</summary>
-							Click on an element to see general info
-						</details>
-						<br>
 						<details closed id="about">
 							<summary>About</summary>
 							<ul>
@@ -793,9 +784,8 @@ P1 items:
 						18,
 						8,
 						1
-						" data-class="g"><rect class="Uue" data-category="unknown,but predicted to be an alkali metal" x="60.32" y="482.56" height="58" width="58" fill="#2f984f" role="img" title="Ununennium" aria-label="Ununennium" data-class="rect"></rect><text class="Uue" data-class="text" x="60" y="521.2266666666667" width="58" fill="black" style="font-family: &quot;arbutus slab&quot;; font-size: 29px;">Uue</text><title class="Uue" data-class="title" data-category="unknown,but predicted to be an alkali metal" x="71.92" y="521.2266666666667" style="font-family: &quot;arbutus slab&quot;; font-size: 19.3333px; color: black;">Uue</title></g>
-			</svg>
-		</main>
-	</div>
-  </body>
-</html>
+						" data-class="g"><rect class="Uue" data-category="unknown,but predicted to be an alkali metal" x="60.32" y="482.56" height="58" width="58" fill="#2f984f" role="img" title="Ununennium" aria-label="Ununennium" data-class="rect"></rect><text class="Uue" data-class="text" x="60" y="521.2266666666667" width="58" fill="black" style="font-family: &quot;arbutus slab&quot;; font-size: 29px;">Uue</text><title class="Uue" data-class="title" data-category="unknown,but predicted to be an alkali metal" x="71.92" y="521.2266666666667" style="font-family: &quot;arbutus slab&quot;; font-size: 19.3333px; color: black;">Uue</title></g></svg>
+					</main>
+				</div>
+			</body>
+			</html>
