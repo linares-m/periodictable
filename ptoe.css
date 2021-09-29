@@ -57,8 +57,6 @@ g:hover {
   border-bottom: 2px solid black;
 }
 
-
-
 #infoReader  {
   position: absolute;
   top: 15%;
@@ -135,5 +133,3 @@ g:hover {
     border-radius: 10px;
     border:2px solid  white;
 }
-
-/
