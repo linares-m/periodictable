@@ -1,105 +1,127 @@
-body {
-  background-color: darkblue;
-  color:white;
-}
-
-h1, h2, p {
- font-family: 'Roboto Slab';
-}
+/*PERIODIC TABLE ELEMENTS STYLING*/
 
 text {
   font-family: "Arbutus Slab";
   background-color: white;
 }
 
+.Fr text, .Cs text,
+.Ra text, .Pb text,
+.Rh text, .Pd text,
+.Ir text, .Og text,
+.Uue text, .Ba text,
+.Rb text, .I text,
+.At text, .Lr text,
+.Os text, .Br text,
+.N text, .Re text,
+.Tl text, .Ru text,
+.Ts text, [data-category = actinide]:not(.Ac, .Pa, .Th) text {
+  fill: lightgray;
+}
+
+
+/*rect:not([data-category = actinide]){
+  filter: brightness(.2);
+}*/
+
+rect {
+}
+
+g:hover {
+}
+g {
+
+}
+
+/*INTERACTIVE ELEMENTS STYLING*/
 text:hover {
   cursor: default;
 }
 
 g:hover {
-  outline: 2px solid lightgreen;
+  border: 2px double white;
+  filter: brightness(1.5);
+  outline: 2px dashed white;
 }
 
 
+
+
+#helpAbout details:hover{
+  cursor: default;
+  text-decoration-style: wavy;
+}
+
+
+
+.infoPane::-webkit-scrollbar {
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+.infoPane::-webkit-scrollbar-thumb {
+  background-color: #0077a7;
+  border-radius: 10px;
+  border:2px solid  white;
+}
+
+
+
+/*lAYOUT CONTAINER STYLING*/
 
 #appContainer {
   display:grid;
   grid: 'ip ma';
   grid-auto-columns: min-content;
-  grid-gap: 5px;
-/*  outline:2px solid white;*/
+  grid-gap: 8px;
+  outline: 5px solid black;
   width: fit-content;
   height: 100vh;
 }
 
 .infoPane {
   grid-area: ip;
-  display:flex;
-  flex-direction:column;
-  position:relative;
-  outline: 5px solid black;
-  width: 15vw;
+  width: 20vw;
   height: 100vh;
+  position:relative;
+  display: block;
   overflow-y: auto;
 }
 
 .infoPane header {
-  display:block;
   width: 96%;
-  height: fit-content;
+  height: 10%;
   min-height: 30px;
   position:absolute;
-  top:1%;
-/*  outline: 1px solid black;*/
-  margin: auto;
   padding:2px;
   text-align: center;
-  border-bottom: 2px solid black;
 }
 
 
 
 #infoReader  {
   position: absolute;
-  top: 8%;
-  width: 95%;
-  height: 72%;
-  border-bottom: 2px solid black;
-  outline: none;
+  top: 85px;
+  width: 96%;
+  height: 70%;
   padding: 4px;
   margin: auto;
+  overflow-y: auto;
 }
+
+
 
 
 #helpAbout {
   position:absolute;
-  top: 85%;
-  width:95%;
+  top: 630px;
+  width:96%;
   height:10%;
   display: flex;
   flex-direction: column;
-/*  outline: 1px black solid; */
   font-size: 20px;
 }
 
-#helpAbout details:hover{
-  cursor: default;
-  text-decoration-style: wavy;
-}
- .mainArea{
-  grid-area: ma;
-  width: fit-content;
-  height: 100vh;
-  position: relative;
-  overflow: auto;
-  background-color: hsla(0,100%,20%, .5);
-  outline: 5px solid black;
-}
-
-#ptoe {
-  display: block;
-  margin: auto;
-}
 
 #appHeader {
   position: absolute;
@@ -117,24 +139,30 @@ g:hover {
   z-index: 1;
 }
 
- #categoryMenu ul {
+.mainArea{
+  grid-area: ma;
+  width: 80vw;
+  height: 100vh;
+  position: relative;
+  overflow: auto;
+  outline: 5px solid black;
 }
 
-.Fr text, .Cs text,  .Ra text, .Pb text, .Rh text, .Pd text, .Ir text, .Og text, .Uue text, .Lu text, .Yb text, .Ba text   {
-  fill: lightgray;
-}
-
-.infoPane::-webkit-scrollbar {
-    background-color: #000000;
-    border-radius: 10px;
-}
-
-.infoPane::-webkit-scrollbar-thumb {
-    background-color: #0077a7;
-    border-radius: 10px;
-    border:2px solid  white;
+#ptoe {
+  display: block;
+  margin-left: -2vw;
+  width: 99%;
+  background-color: hsla(0,100%,20%, .5);
 }
 
 
+/*GLOBAL STYLING*/
 
-/*element rects adjustments*/
+body {
+  background-color: darkblue;
+  color:white;
+}
+
+h1, h2, p {
+  font-family: 'Roboto Slab';
+}
