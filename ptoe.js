@@ -6,21 +6,11 @@ function elInfo(){
     selector[i].addEventListener("click", function(){
       let datum = []
       datum = this.dataset
-      document.querySelector("#infoReader").innerHTML = "Name: " + datum.name + ",  Number: " + datum.number + ",     Category: " + datum.category + ",   Atomic Mass: " + datum.atomicMass + ",  Summary: " +  datum.summary + "   Source: "  + datum.source
-      d3.select(".infoPane")
-      .selectAll("p")
-      .data(datum)
-      .enter().append("p")
-      .text('test')
-      .style("margin-top", "8px" )
+      document.querySelector("#iR1").innerHTML = "Name: " + datum.name + ", Number: " + datum.number + ", Category: " + datum.category + ", Phase: " + datum.phase + ", Appearance: " + datum.appearance;
+      document.querySelector("#iR2").innerHTML = "Atomic Mass: " + datum.atomicMass + ",  Density: " + datum.density + ", Melting Point: " + datum.meltingPoint + ", Boiling Point: " + datum.boilingPoint, ", Electron Affinity: " + datum.electronConfig;
+      document.querySelector("#iR3").innerHTML = "Electron Shells" + datum.shells;
+      document.querySelector("#iR4").innerHTML =   "Summary: " +  datum.summary;
+      document.querySelector("#iR5").innerHTML =  "Source: "  + datum.source;
     })
   }
 }
-
-/*window.addEventListener("DOMContentLoaded", createCatMenu)
-function createCatMenu(){
-var gNodes = document.querySelectorAll("g")
-for (i = 0; i < gNodes.length; i++){
-console.log(gNodes[i].dataset.category)
-}
-}*/
