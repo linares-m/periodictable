@@ -29,6 +29,8 @@ function elInfo(){
         document.querySelector("#iR5").setAttribute("href", datum.source);
         document.querySelector("#iRD").style.visibility = "visible";
         
-      })
-    }
+        }
+     })
+  }
+}
        
