@@ -5,6 +5,7 @@ text {
   background-color: white;
 }
 
+.Rf text,.Db text, .Sg text, .Bh text, .Hs text, .Mt text, .K text, .Na text, .Rn text, .Xe text,
 .Fr text, .Cs text,
 .Ra text, .Pb text,
 .Rh text, .Pd text,
@@ -21,7 +22,7 @@ text {
 
 
 /*rect:not([data-category = actinide]){
-  filter: brightness(.2);
+filter: brightness(.2);
 }*/
 
 rect {
@@ -30,7 +31,7 @@ rect {
 g:hover {
 }
 g {
-
+  
 }
 
 /*INTERACTIVE ELEMENTS STYLING*/
@@ -39,6 +40,12 @@ text:hover {
 }
 
 g:hover {
+  border: 2px double white;
+  filter: brightness(1.2);
+  outline: 2px dashed white;
+}
+
+.active g{
   border: 2px double white;
   filter: brightness(1.5);
   outline: 2px dashed white;
@@ -81,11 +88,14 @@ g:hover {
 
 .infoPane {
   grid-area: ip;
-  width: 20vw;
+  width: 22vw;
   height: 100vh;
   position:relative;
   display: block;
   overflow-y: auto;
+  font-size: 22px;
+  background-color: hsla(0, 0%, 0%, .2);
+  outline: 2px solid black;
 }
 
 .infoPane header {
@@ -97,15 +107,17 @@ g:hover {
   text-align: center;
 }
 
-
+#infoPane p {
+  height: min-content;
+}
 
 #infoReader  {
   position: absolute;
-  top: 85px;
+  top: 15px;
   width: 96%;
-  height: 70%;
-  padding: 4px;
-  margin: auto;
+  height: 80%;
+  padding: 2px;
+  margin: 2;
   overflow-y: auto;
 }
 
@@ -158,11 +170,20 @@ g:hover {
 /*IR COMPONENTS*/
 #iRD {
   visibility: hidden;
-
+  
 }
 
 #iRD a {
   color: white;
+}
+
+.iRI {
+  position:sticky;
+  top:0px;
+  width: 20vw ;
+  background-color: black;
+  margin: 0;
+  padding:0;
 }
 
 /*GLOBAL STYLING*/
