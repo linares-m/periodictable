@@ -1,7 +1,10 @@
+window.addEventListener("DOMContentLoaded", elInfo)
+const selector = document.getElementsByTagName('g');
+
 function elInfo(){
   for (i=0; i < selector.length; i++){
     selector[i].tabIndex = "";
-    
+
     selector[i].addEventListener("mouseover", function(){
       let datum = []
       datum = this.dataset;
@@ -18,7 +21,7 @@ function elInfo(){
     selector[i].addEventListener("mousedown", function(){
       let datum = []
       datum = this.dataset
-      if ((document.querySelector("#qD1").innerHTML == "") 
+      if ((document.querySelector("#qD1").innerHTML == "")
       || (document.querySelector(".iRI p").innerHTML == "Click on another element to see more about it")) {
         document.querySelector(".iRI p").innerHTML = "Click on another element to see more about it";
         document.querySelector("#cD1").innerHTML = "Name: " + datum.name
@@ -41,6 +44,7 @@ function elInfo(){
       }
       this.style.outline = "2px dashed white"
       this.style.filter = "brightness(1.2)"
-     })
-   }
+    })
+  }
 }
+
