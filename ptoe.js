@@ -15,13 +15,11 @@ function elInfo(){
         null;
       }
     })
-    selector[i].addEventListener("mouseup", function(){
-      this.classList.toggle("inactive");
-    })
     selector[i].addEventListener("mousedown", function(){
       let datum = []
       datum = this.dataset
-      if ((document.querySelector("#qD1").innerHTML == "") || (document.querySelector(".iRI p").innerHTML == "Click on another element to see more about it")) {
+      if ((document.querySelector("#qD1").innerHTML == "") 
+      || (document.querySelector(".iRI p").innerHTML == "Click on another element to see more about it")) {
         document.querySelector(".iRI p").innerHTML = "Click on another element to see more about it";
         document.querySelector("#cD1").innerHTML = "Name: " + datum.name
         document.querySelector("#cD2").innerHTML = " Number: " + datum.number
@@ -38,10 +36,11 @@ function elInfo(){
         document.querySelector("#iR5").setAttribute("href", datum.source);
         document.querySelector("#iRD").style.visibility = "visible";
         for (i=0; i<selector.length; i++){
-          selector[i].style.outline = "2px solid black";}
+          selector[i].style.outline = "none";
         }
-        this.style.outline = "2px dashed white"
-        this.style.filter = "brightness(1.2)"
+      }
+      this.style.outline = "2px dashed white"
+      this.style.filter = "brightness(1.2)"
      })
    }
 }
