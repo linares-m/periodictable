@@ -1,12 +1,6 @@
-//TODO:
-// Add link in place of source
-// Category selections
-//
-
-window.addEventListener("DOMContentLoaded", elInfo)
-const selector = document.getElementsByTagName('g');
 function elInfo(){
   for (i=0; i < selector.length; i++){
+    selector[i].tabIndex = "";
     
     selector[i].addEventListener("mouseover", function(){
       let datum = []
@@ -21,7 +15,10 @@ function elInfo(){
         null;
       }
     })
-    selector[i].addEventListener("click", function(){
+    selector[i].addEventListener("mouseup", function(){
+      this.classList.toggle("inactive");
+    })
+    selector[i].addEventListener("mousedown", function(){
       let datum = []
       datum = this.dataset
       if ((document.querySelector("#qD1").innerHTML == "") || (document.querySelector(".iRI p").innerHTML == "Click on another element to see more about it")) {
@@ -40,59 +37,11 @@ function elInfo(){
         document.querySelector("#iR4").innerHTML =    datum.summary;
         document.querySelector("#iR5").setAttribute("href", datum.source);
         document.querySelector("#iRD").style.visibility = "visible";
-        this.classList.toggle("active");
-        
-        
-      }
-      /*    if ((document.querySelector("#iRI").display == "none") && (document.querySelector("#iRD").visibility == "visible")){
-      document.querySelector("#iR1").innerHTML = "Name: " + datum.name + ", Number: " + datum.number + ", Category: " + datum.category + ", Phase: " + datum.phase + ", Appearance: " + datum.appearance;
-      document.querySelector("#iR2").innerHTML = "Atomic Mass: " + datum.atomicMass + ",  Density: " + datum.density + ", Melting Point: " + datum.meltingPoint + ", Boiling Point: " + datum.boilingPoint, ", Electron Affinity: " + datum.electronConfig;
-      document.querySelector("#iR3").innerHTML =  datum.shells;
-      document.querySelector("#iR4").innerHTML =    datum.summary;
-      document.querySelector("#iR5").setAttribute("href", datum.source);
-    }
-    if (document.querySelector("#iR1").innerHTML.startsWith(this.id) == false){
-    document.querySelector("#iRI").style.display = "block";
-    document.querySelector("#iR1").innerHTML = "";
-    document.querySelector("#iR2").innerHTML = "";
-    document.querySelector("#iR3").innerHTML =  "";
-    document.querySelector("#iR4").innerHTML =  "";
-    document.querySelector("#iR5").removeAttribute("href", datum.source);
-    document.querySelector("#iRD").style.visibility = "hidden";
-  } */
-})
+        for (i=0; i<selector.length; i++){
+          selector[i].style.outline = "2px solid black";}
+        }
+        this.style.outline = "2px dashed white"
+        this.style.filter = "brightness(1.2)"
+     })
+   }
 }
-}
-
-window.addEventListener("DOMContentLoaded", toClipboard)
-function toClipboard() {
-  var qD = Array.from(document.querySelectorAll(".quantData"));
-  var copyText = qD.map((i)=> i)
-  console.log(copyText)
-  for(n=0; n < copyText.length; n++){
-    copyText[n].addEventListener("click", function(){
-      console.log('copytexti: ', copyText[n])
-      copyText[n].select();
-      copyText[n].setSelectionRange(0, 20000);
-      navigator.clipboard.writeText(copyText[n].innerHTML);
-      var tooltip = document.getElementById("tooltip");
-      window.alert("Copied: " + copyText[n].innerHTML);
-    })
-    
-    copyText[n].addEventListener("mouseover", function () {
-      document.getElementById(".iRI p").innerHTML = "Click on an element to see info about the element. Copy to clipboard";
-    })
-    copyText[n].addEventListener("mouseout", function () {
-      document.getElementById(".iRI p").innerHTML = "";
-    })
-  }
-}
-
-
-/*window.addEventListener("DOMContentLoaded", createCatMenu)
-function createCatMenu(){
-var gNodes = document.querySelectorAll("g")
-for (i = 0; i < gNodes.length; i++){
-console.log(gNodes[i].dataset.category)
-}
-}*/
