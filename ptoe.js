@@ -1,5 +1,53 @@
+//TODO:
+// Add link in place of source - complete
+// Category selections - checkbox - COMPLETE
 window.addEventListener("DOMContentLoaded", elInfo)
 const selector = document.getElementsByTagName('g');
+//Create array to be used in filtering the elements by category
+// function categoriesForFiltering(){
+//The following iterates through all the elements to extract all element's categories,
+//then adds each category name to an array 'acc'; this array will contained options for filtering.
+var acc = []
+for(i=0; i<selector.length; i++){
+  var cur = selector[i].dataset.category;
+  if(acc.includes(cur)===false){acc.push(cur)}
+}
+//Create checkboxes
+// NOTE: LABLES MUST BE APPENDED FIRST - you cannot insert labels into input elements
+const sortedCategories = acc.sort()
+var category = (d) => d
+d3.select("#checkboxContainer").selectAll("label")
+.data(sortedCategories)
+.enter().append("label")
+.attr("for", category)
+.text(category)
+.append("input")
+.attr("type", "checkbox")
+.attr("id", category)
+.attr("value", category)
+.attr("class", "categoryOptions")
+.attr("title", category)
+
+//Add event listeners for category checkboxes
+let checkboxes = document.getElementsByTagName("input")
+for (i=0; i<checkboxes.length; i++){
+  checkboxes[i].addEventListener("change", function(){
+    console.log(this.id);
+    var categoryString = '' + this.id
+    var categoryToHighlight =  `"[data-category='` + categoryString + `']"`;
+    const categorySelect = document.querySelectorAll(eval(categoryToHighlight));
+    if (this.checked == true){
+      for(j=0; j<categorySelect.length; j++){
+        categorySelect[j].style.outline = "2px dotted white";
+      }
+    }
+    if (this.checked == false){
+      for(j=0; j<categorySelect.length; j++){
+        categorySelect[j].style.outline = "";
+      }
+    }
+  })
+}
 
 function elInfo(){
   for (i=0; i < selector.length; i++){
@@ -44,7 +92,7 @@ function elInfo(){
       }
       this.style.outline = "2px dashed white"
       this.style.filter = "brightness(1.2)"
+
     })
   }
 }
-
