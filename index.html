@@ -12,13 +12,13 @@ ADD DEFER TO SCRIPT TAG!!
 <head>
 	<meta charset="UTF-8"/>
 	<title>Periodic Table of Elements</title>
-	<script type="text/javascript" src="ptoe.js" defer></script>
-	<link rel="stylesheet" href="ptoe.css"/>
+	<script type="text/javascript" src="PTOE-3-radio.js" defer></script>
+	<link rel="stylesheet" href="PTOE-3-radio.css"/>
 	<script src="https://d3js.org/d3.v7.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus+Slab"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	
+
 </head>
 <body>
 	<div id="appContainer">
@@ -28,7 +28,7 @@ ADD DEFER TO SCRIPT TAG!!
 				<p id="tooltip"></p>
 				<div class="iRI"><p>Click on an element to see info about the element.</p><hr>
 				</div>
-				
+
 				<div id="iR1">
 					<header><h3><u id="cDH"></u></h3></header>
 					<p id="cD1"></p>
@@ -48,8 +48,8 @@ ADD DEFER TO SCRIPT TAG!!
 						<p class="quantData" id="qD5"></p>
 						<p class="quantData" id="qD6"></p>
 					</div>
-					
-					
+
+
 					<h3><u>Summary:</u></h3>
 					<p id="iR4"></p>
 					<h3>Reference:</h3>
@@ -74,9 +74,15 @@ ADD DEFER TO SCRIPT TAG!!
 				<header><h1>Periodic Table of Elements</h1></header>
 			</section>
 			<section id="categoryMenu">
-				<header><h2>Filter By Category</h2></header>
-				<div id="checkboxContainer">
-					
+				<!-- <header><h2>Categories:</h2></header> -->
+				<div id="radioContainer">
+
+					<button type="button" name="reset" id="reset">Reset All Selections</button>
+					<!-- <button type="button" name="black-white" id="blackWhite">Toggle Black-White Filter</button> -->
+					<label for="none">
+						none
+						<input type="radio" id="none"  value="none" name="categoryOptions" title="none">
+					</label>
 				</div>
 			</section>
 			<svg id="ptoe" style="outline:5px solid black" width="1248" height="748.8"> <g id="Hydrogen" class="H" data-category="diatomic nonmetal" role="button" title="Hydrogen" data-name="Hydrogen" data-number="1" data-group="1" data-period="1" data-summary="Hydrogen is a chemical element with chemical symbol H and atomic number 1. With an atomic weight of 1.00794 u, hydrogen is the lightest element on the periodic table. Its monatomic form (H) is the most abundant chemical substance in the Universe, constituting roughly 75% of all baryonic mass." data-discovered-by="Henry Cavendish" data-source="https://en.wikipedia.org/wiki/Hydrogen" data-phase="Gas" data-appearance="colorless gas" data-spectral-img="https://en.wikipedia.org/wiki/File:Hydrogen_Spectra.jpg" data-atomic-mass="1.008" data-density="0.08988" data-melting-point="13.99" data-boiling-point="20.271" data-molar-heat="28.836" data-electron-config="1s1" data-electron-affin="72.769" data-shells="
@@ -539,7 +545,7 @@ ADD DEFER TO SCRIPT TAG!!
 				32,
 				18,
 				5
-				" data-class="g" aria-label="Click For More Info About This Element" aria-labelledby="83" aria-describedby="Bi" alt="Bismuth"><rect class="Bi" data-category="post-transition metal" x="936" y="374.4" height="60" width="60" fill="#9e4fb5" title="Bismuth" data-class="rect"></rect><text role="presentation" aria-hidden="true" class="Bi" data-class="symbol" x="948" y="414.4" width="60" fill="black" style="font-family: &quot;arbutus slab&quot;; font-size: 30px;">Bi</text><text role="presentation" aria-hidden="true" class="Bi" data-class="number" x="940.5" y="389.4" width="60" fill="black" style="font-family: &quot;arbutus slab&quot;; font-size: 15px;">83</text><text role="presentation" aria-hidden="true" class="Bi" data-class="atomicMassLabel" x="943.5" y="429.4" width="60" fill="black" style="font-family: &quot;arbutus slab&quot;; font-size: 15px;">209</text><title id="83" class="Bi" data-class="ariaTitle" data-category="post-transition metal" x="948" y="414.4">Bismuth</title><desc id="Bi" class="Bi" data-class="ariaDesc" data-category="post-transition metal" x="948" y="414.4">Bismuth</desc></g><g id="Polonium" class="Po" data-category="post-transition metal" role="button" title="Polonium" data-name="Polonium" data-number="84" data-group="16" data-period="6" data-summary="Polonium is a chemical element with symbol Po and atomic number 84, discovered in 1898 by Marie Curie and Pierre Curie. A rare and highly radioactive element with no stable isotopes, polonium is chemically similar to bismuth and tellurium, and it occurs in uranium ores. Applications of polonium are few." data-discovered-by="Pierre Curie" data-source="https://en.wikipedia.org/wiki/Polonium" data-phase="Solid" data-appearance="silvery" data-atomic-mass="209" data-density="9.196" data-melting-point="527" data-boiling-point="1235" data-molar-heat="26.4" data-electron-config="1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p4" data-electron-affin="136" data-shells="
+				" data-class="g" aria-label="Click For More Info About This Element" aria-labelledby="83" aria-describedby="Bi" alt="Bismuth"><rect class="Bi" data-category="post-transition metal" x="936" y="374.4" height="60" width="60" fill="#9e4fb5" title="Bismuth" data-class="rect"></rect><text role="presentation" aria-hidden="true" class="Bi" data-class="symbol" x="948" y="414.4" width="60" fill="black" style="font-family: &quot;arbutus slab&quot;; font-size: 30px;">Bi</text><text role="presentation" aria-hidden="true" class="Bi" data-class="number" x="940.5" y="389.4" width="60" fill="black" style="font-family: &quot;arbutus slab&quot;; font-size: 15px;">83</text><text role="presentation" aria-hidden="true" class="Bi" data-class="atomicMassLabel" x="943.5" y="429.4" width="60" fill="black" style="font-family: &quot;arbutus slab&quot;; font-size: 15px;">209</text><title id="83" class="Bi" data-class="ariaTitle" data-category="post-transition metal" x="948" y="414.4">Bismuth</title><desc id="Bi" class="Bi" data-class="ariaDesc" data-category="post-transition metal" x="948" y="414.4">Bismuth</desc></g><g id="Polonium" class="Po" data-category="post-transition metal" role="button" title="Polonium" data-name="Polonium" data-number="84" data-group="16" data-period="6" data-summary="Polonium is a chemical element with symbol Po and atomic number 84, discovered in 1898 by Marie Curie and Pierre Curie. A rare and highly gactive element with no stable isotopes, polonium is chemically similar to bismuth and tellurium, and it occurs in uranium ores. Applications of polonium are few." data-discovered-by="Pierre Curie" data-source="https://en.wikipedia.org/wiki/Polonium" data-phase="Solid" data-appearance="silvery" data-atomic-mass="209" data-density="9.196" data-melting-point="527" data-boiling-point="1235" data-molar-heat="26.4" data-electron-config="1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p4" data-electron-affin="136" data-shells="
 				2,
 				8,
 				18,
