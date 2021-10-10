@@ -1,53 +1,77 @@
-//TODO:
-// Add link in place of source - complete
-// Category selections - checkbox - COMPLETE
 window.addEventListener("DOMContentLoaded", elInfo)
 const selector = document.getElementsByTagName('g');
-//Create array to be used in filtering the elements by category
-// function categoriesForFiltering(){
+
 //The following iterates through all the elements to extract all element's categories,
-//then adds each category name to an array 'acc'; this array will contained options for filtering.
+//then adds each category name to an array 'acc' for filtering in the app.
 var acc = []
 for(i=0; i<selector.length; i++){
   var cur = selector[i].dataset.category;
   if(acc.includes(cur)===false){acc.push(cur)}
 }
-//Create checkboxes
+//Create radioes
 // NOTE: LABLES MUST BE APPENDED FIRST - you cannot insert labels into input elements
 const sortedCategories = acc.sort()
 var category = (d) => d
-d3.select("#checkboxContainer").selectAll("label")
+d3.select("#radioContainer").selectAll("label")
 .data(sortedCategories)
 .enter().append("label")
 .attr("for", category)
 .text(category)
 .append("input")
-.attr("type", "checkbox")
+.attr("type", "radio")
 .attr("id", category)
 .attr("value", category)
-.attr("class", "categoryOptions")
+.attr("name", "categoryOptions")
 .attr("title", category)
 
-//Add event listeners for category checkboxes
-let checkboxes = document.getElementsByTagName("input")
-for (i=0; i<checkboxes.length; i++){
-  checkboxes[i].addEventListener("change", function(){
+//Add event listeners for category radioes
+// NOTE: The htmlcollection is made up of 'input' elements - allows for switching
+//input type for future adaptations
+document.getElementById("none").addEventListener("click", function(){
+  if(this.checked == true){
+    for(h=0; h<selector.length; h++){
+      selector[h].style.filter = "brightness(1)"
+    }
+  }
+})
+
+//Add event listeners to radio buttons
+//Declare variables for getting elements from DOM to script with
+let radio = document.getElementsByTagName("input");
+
+//function for category highlighting
+for (i=1; i<radio.length; i++){
+  radio[i].addEventListener("change", function(){
     console.log(this.id);
-    var categoryString = '' + this.id
-    var categoryToHighlight =  `"[data-category='` + categoryString + `']"`;
+    var categoryToHighlight =  `"[data-category='` + this.id + `']"`;
     const categorySelect = document.querySelectorAll(eval(categoryToHighlight));
-    if (this.checked == true){
-      for(j=0; j<categorySelect.length; j++){
-        categorySelect[j].style.outline = "2px dotted white";
+    console.log(this.checked);
+     if (this.checked == true){
+      for(k=0; k<selector.length; k++){
+        selector[k].style.filter = "brightness(.3)";
+        for(j=0; j<categorySelect.length; j++){
+          categorySelect[j].style.filter = "brightness(1)";
+        }
       }
     }
     if (this.checked == false){
-      for(j=0; j<categorySelect.length; j++){
-        categorySelect[j].style.outline = "";
+      document.querySelector(querySelectRadioLabels).classList.replace('active', '');
+      for(j=0; j<selector.length; j++){
+
+        selector[j].style.filter = "brightness(1)";
       }
     }
   })
 }
+
+//Scripts for reset/filter button click events:
+document.getElementById('reset').addEventListener("click", ()=>{
+  for(i=0; i<selector.length; i++){
+    selector[i].style.outline = '';
+    selector[i].style.filter = 'brightness(1)';
+    document.getElementById('none').checked = true;
+  }
+})
 
 function elInfo(){
   for (i=0; i < selector.length; i++){
@@ -86,9 +110,6 @@ function elInfo(){
         document.querySelector("#iR4").innerHTML =    datum.summary;
         document.querySelector("#iR5").setAttribute("href", datum.source);
         document.querySelector("#iRD").style.visibility = "visible";
-        for (i=0; i<selector.length; i++){
-          selector[i].style.outline = "none";
-        }
       }
       this.style.outline = "2px dashed white"
       this.style.filter = "brightness(1.2)"
