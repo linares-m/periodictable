@@ -5,33 +5,16 @@ text {
   background-color: white;
 }
 
-.Rf text,.Db text, .Sg text, .Bh text, .Hs text, .Mt text, .K text, .Na text, .Rn text, .Xe text,
-.Fr text, .Cs text,
-.Ra text, .Pb text,
-.Rh text, .Pd text,
-.Ir text, .Og text,
-.Uue text, .Ba text,
-.Rb text, .I text,
-.At text, .Lr text,
-.Os text, .Br text,
-.N text, .Re text,
-.Tl text, .Ru text,
-.Ts text, [data-category = actinide]:not(.Ac, .Pa, .Th) text {
+.Rf text,.Db text, .Sg text, .Bh text,
+.Hs text, .Mt text, .K text, .Na text,
+.Rn text, .Xe text, .Fr text, .Cs text,
+.Ra text, .Pb text, .Rh text, .Pd text,
+.Ir text, .Og text, .Uue text, .Ba text,
+.Rb text, .I text, .At text, .Lr text,
+.Os text, .Br text, .N text, .Re text,
+.Tl text, .Ru text, .Ts text,
+[data-category = actinide]:not(.Ac, .Pa, .Th) text {
   fill: lightgray;
-}
-
-
-/*rect:not([data-category = actinide]){
-filter: brightness(.2);
-}*/
-
-rect {
-}
-
-g:hover {
-}
-g {
-  
 }
 
 /*INTERACTIVE ELEMENTS STYLING*/
@@ -39,27 +22,16 @@ text:hover {
   cursor: default;
 }
 
-g:hover {
+g:hover, g:focus {
   border: 2px double white;
   filter: brightness(1.2);
   outline: 2px dashed white;
 }
 
-.active g{
-  border: 2px double white;
-  filter: brightness(1.5);
-  outline: 2px dashed white;
-}
-
-
-
-
 #helpAbout details:hover{
   cursor: default;
   text-decoration-style: wavy;
 }
-
-
 
 .infoPane::-webkit-scrollbar {
   background-color: #000000;
@@ -72,38 +44,34 @@ g:hover {
   border:2px solid  white;
 }
 
-
-
 /*lAYOUT CONTAINER STYLING*/
-
 #appContainer {
   display:grid;
   grid: 'ip ma';
   grid-auto-columns: min-content;
   grid-gap: 8px;
   outline: 5px solid black;
-  width: fit-content;
-  height: 100vh;
+  width: min-content;
+  height: 800px;
 }
 
 .infoPane {
   grid-area: ip;
-  width: 22vw;
-  height: 100vh;
+  width: 340px;
+  height: 763px;
   position:relative;
   display: block;
   overflow-y: auto;
   font-size: 22px;
   background-color: hsla(0, 0%, 0%, .2);
-  outline: 2px solid black;
 }
 
 .infoPane header {
-  width: 96%;
+  width: min-content;
   height: 10%;
-  min-height: 30px;
+  min-height: min-content;
   position:absolute;
-  padding:2px;
+  padding:5px;
   text-align: center;
 }
 
@@ -114,15 +82,12 @@ g:hover {
 #infoReader  {
   position: absolute;
   top: 15px;
-  width: 96%;
-  height: 80%;
-  padding: 2px;
+  width: 334px;
+  height: 607px;
+  padding: 5px;
   margin: 2;
   overflow-y: auto;
 }
-
-
-
 
 #helpAbout {
   position:absolute;
@@ -132,29 +97,64 @@ g:hover {
   display: flex;
   flex-direction: column;
   font-size: 20px;
+  padding: 5px;
 }
-
 
 #appHeader {
   position: absolute;
-  top:-20px;
-  left: 30%;
+  top:-28px;
+  left: 300px;
+  display:block;
+  width: 600px;
   z-index:1;
-  font-size: 25px;
+  font-size: 28px;
   margin: 10px;
 }
 
 #categoryMenu {
   position: absolute;
-  top: 75px;
-  left: 32%;
+  top: 60px;
+  left: 200px;
   z-index: 1;
+  font-size: 20px;
+  height: 100px;
+}
+#categoryMenu h2 {
+  transform:translate(130px, -4px)
+}
+#checkboxContainer {
+  grid-template-rows: repeat(3,40px);
+  display: grid;
+  grid-template-columns: repeat(4, 160px);
+  gap: 0px;
+  grid-auto-flow: column;
+  grid-auto-columns: 21px;
+  text-align: left;
+  font-size: 16px;
+  position: absolute;
+  left: -44px;
+  top: 69px;
+  z-index: -20;
+  width: 620px;
+  background-color: hsla(0,0%,0%, .4);
+  overflow:hidden;
 }
 
+#checkboxContainer label {
+  text-align: justify;
+}
+#checkboxContainer input{
+  transform:scale(1.4);
+  
+  background-color: black;
+}
+#checkboxContainer label:hover {
+  background-color: hsla(0, 100%, 100%, .2);
+}
 .mainArea{
   grid-area: ma;
-  width: 80vw;
-  height: 100vh;
+  width: 1216px;
+  height: 764px;
   position: relative;
   overflow: auto;
   outline: 5px solid black;
@@ -162,15 +162,15 @@ g:hover {
 
 #ptoe {
   display: block;
-  margin-left: -2vw;
-  width: 99%;
+  margin-left: -30px;
+  width: 1216px;
+  height: 764px;
   background-color: hsla(0,100%,20%, .5);
 }
 
-/*IR COMPONENTS*/
+/*Info Reader Components*/
 #iRD {
   visibility: hidden;
-  
 }
 
 #iRD a {
@@ -180,14 +180,13 @@ g:hover {
 .iRI {
   position:sticky;
   top:0px;
-  width: 20vw ;
+  width: 334px ;
   background-color: black;
   margin: 0;
   padding:0;
 }
 
-/*GLOBAL STYLING*/
-
+/*Global Styling*/
 body {
   background-color: darkblue;
   color:white;
