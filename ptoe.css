@@ -52,7 +52,7 @@ g:hover, g:focus {
   grid-gap: 8px;
   outline: 5px solid black;
   width: min-content;
-  height: 800px;
+  height: min-content;
 }
 
 .infoPane {
@@ -66,14 +66,14 @@ g:hover, g:focus {
   background-color: hsla(0, 0%, 0%, .2);
 }
 
-.infoPane header {
-  width: min-content;
-  height: 10%;
-  min-height: min-content;
-  position:absolute;
-  padding:5px;
-  text-align: center;
-}
+/* .infoPane header {
+width: min-content;
+height: 30px;
+min-height: min-content;
+position:absolute;
+padding:5px;
+text-align: center;
+} */
 
 #infoPane p {
   height: min-content;
@@ -103,7 +103,7 @@ g:hover, g:focus {
 #appHeader {
   position: absolute;
   top:-28px;
-  left: 300px;
+  left: 330px;
   display:block;
   width: 600px;
   z-index:1;
@@ -113,48 +113,60 @@ g:hover, g:focus {
 
 #categoryMenu {
   position: absolute;
-  top: 60px;
-  left: 200px;
+  top: 21px;
+  left: 212px;
   z-index: 1;
   font-size: 20px;
   height: 100px;
+  width: min-content;
 }
-#categoryMenu h2 {
-  transform:translate(130px, -4px)
-}
-#checkboxContainer {
-  grid-template-rows: repeat(3,40px);
-  display: grid;
-  grid-template-columns: repeat(4, 160px);
-  gap: 0px;
-  grid-auto-flow: column;
-  grid-auto-columns: 21px;
-  text-align: left;
-  font-size: 16px;
+/* #categoryMenu h2 {
+transform:translate(200px, 20px);
+font-size: 22px;
+padding: 1px;
+background-color: hsla(0,0%,0%, .4);
+} */
+#radioContainer {
   position: absolute;
   left: -44px;
   top: 69px;
-  z-index: -20;
-  width: 620px;
+  grid-template-rows: repeat(4,40px);
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  gap: 0px;
+  grid-auto-flow: column;
+  grid-auto-columns: 21px;
+  width: 600px;
   background-color: hsla(0,0%,0%, .4);
   overflow:hidden;
+  font: 16px 'roboto slab';
 }
 
-#checkboxContainer label {
-  text-align: justify;
+#radioContainer label {
+  /* outline: 1px dotted white; */
+  text-align: right;
+  padding:5px;
 }
-#checkboxContainer input{
-  transform:scale(1.4);
-  
-  background-color: black;
+#radioContainer input{
+  transform:scale(1.3);
+  color:black;
 }
-#checkboxContainer label:hover {
+#radioContainer label {
+  border-radius: 6px;
+}
+#radioContainer label:hover {
   background-color: hsla(0, 100%, 100%, .2);
+}
+
+button {
+  background-color: hsla(0, 0%, 0%, .4);
+  font: 15px 'roboto slab';
+  color: white;
 }
 .mainArea{
   grid-area: ma;
-  width: 1216px;
-  height: 764px;
+  width: min-content;
+  height: min-content;
   position: relative;
   overflow: auto;
   outline: 5px solid black;
