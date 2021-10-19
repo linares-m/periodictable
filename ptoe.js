@@ -1,82 +1,12 @@
+//TODO:
+// Keyboard navigation: Add selectability to each element when focused on with keyboard
 window.addEventListener("DOMContentLoaded", elInfo)
 const selector = document.getElementsByTagName('g');
 
-//The following iterates through all the elements to extract all element's categories,
-//then adds each category name to an array 'acc' for filtering in the app.
-var acc = []
-for(i=0; i<selector.length; i++){
-  var cur = selector[i].dataset.category;
-  if(acc.includes(cur)===false){acc.push(cur)}
-}
-//Create radioes
-// NOTE: LABLES MUST BE APPENDED FIRST - you cannot insert labels into input elements
-const sortedCategories = acc.sort()
-var category = (d) => d
-d3.select("#radioContainer").selectAll("label")
-.data(sortedCategories)
-.enter().append("label")
-.attr("for", category)
-.text(category)
-.append("input")
-.attr("type", "radio")
-.attr("id", category)
-.attr("value", category)
-.attr("name", "categoryOptions")
-.attr("title", category)
-
-//Add event listeners for category radioes
-// NOTE: The htmlcollection is made up of 'input' elements - allows for switching
-//input type for future adaptations
-document.getElementById("none").addEventListener("click", function(){
-  if(this.checked == true){
-    for(h=0; h<selector.length; h++){
-      selector[h].style.filter = "brightness(1)"
-    }
-  }
-})
-
-//Add event listeners to radio buttons
-//Declare variables for getting elements from DOM to script with
-let radio = document.getElementsByTagName("input");
-
-//function for category highlighting
-for (i=1; i<radio.length; i++){
-  radio[i].addEventListener("change", function(){
-    console.log(this.id);
-    var categoryToHighlight =  `"[data-category='` + this.id + `']"`;
-    const categorySelect = document.querySelectorAll(eval(categoryToHighlight));
-    console.log(this.checked);
-     if (this.checked == true){
-      for(k=0; k<selector.length; k++){
-        selector[k].style.filter = "brightness(.3)";
-        for(j=0; j<categorySelect.length; j++){
-          categorySelect[j].style.filter = "brightness(1)";
-        }
-      }
-    }
-    if (this.checked == false){
-      document.querySelector(querySelectRadioLabels).classList.replace('active', '');
-      for(j=0; j<selector.length; j++){
-
-        selector[j].style.filter = "brightness(1)";
-      }
-    }
-  })
-}
-
-//Scripts for reset/filter button click events:
-document.getElementById('reset').addEventListener("click", ()=>{
-  for(i=0; i<selector.length; i++){
-    selector[i].style.outline = '';
-    selector[i].style.filter = 'brightness(1)';
-    document.getElementById('none').checked = true;
-  }
-})
-
+//Update Info Pane with element info when element is clicked on:
 function elInfo(){
   for (i=0; i < selector.length; i++){
     selector[i].tabIndex = "";
-
     selector[i].addEventListener("mouseover", function(){
       let datum = []
       datum = this.dataset;
@@ -113,7 +43,103 @@ function elInfo(){
       }
       this.style.outline = "2px dashed white"
       this.style.filter = "brightness(1.2)"
-
     })
   }
 }
+
+//------------------------------------------------------------------------------
+//Create Category Filtering Menu:
+//Add each element's category name to an array 'acc'; this array will contain radio options.
+var acc = []
+for(i=0; i<selector.length; i++){
+  var cur = selector[i].dataset.category;
+  if(acc.includes(cur)===false){acc.push(cur)}
+}
+//Create radio for filtering by category
+// NOTE: LABELS MUST BE APPENDED FIRST - you cannot insert labels into input elements
+const sortedCategories = acc.sort()
+var category = (d) => d
+d3.select("#radioContainer").selectAll("label")
+.data(sortedCategories)
+.enter().append("label")
+.attr("for", category)
+.text(category)
+.append("input")
+.attr("type", "radio")
+.attr("id", category)
+.attr("value", category)
+.attr("name", "categoryOptions")
+.attr("title", category)
+
+//Add event listeners for category radio input
+// NOTE: The htmlcollection is made up of 'input' elements - allows for switching
+//input type for future adaptations
+document.getElementById("none").addEventListener("click", function(){
+  if(this.checked == true){
+    for(h=0; h<selector.length; h++){
+      selector[h].style.filter = "brightness(1)"
+    }
+  }
+})
+
+//Add event listeners to radio buttons
+//Declare variables for getting elements from DOM to script with
+let radio = document.getElementsByTagName("input");
+
+//function for category highlighting
+for (i=1; i<radio.length; i++){
+  radio[i].addEventListener("change", function(){
+    console.log(this.id);
+    var categoryToHighlight = `"[data-category='`+ this.id + `']"`;
+    const categorySelect = document.querySelectorAll(eval(categoryToHighlight));
+    console.log(this.checked);
+     if (this.checked == true){
+      for(k=0; k<selector.length; k++){
+        selector[k].style.filter = "brightness(.3)";
+        for(j=0; j<categorySelect.length; j++){
+          categorySelect[j].style.filter = "brightness(1)";
+        }
+      }
+    }
+    if (this.checked == false){
+      document.querySelector(querySelectRadioLabels).classList.replace('active', '');
+      for(j=0; j<selector.length; j++){
+        selector[j].style.filter = "brightness(1)";
+      }
+    }
+  })
+}
+
+//Scripts for reset/filter button click events:
+document.getElementById('reset').addEventListener("click", ()=>{
+  for(i=0; i<selector.length; i++){
+    selector[i].style.outline = '';
+    selector[i].style.filter = 'brightness(1)';
+    document.getElementById('none').checked = true;
+  }
+})
+
+//------------------------------------------------------------------------------
+
+//WIP, WISHLIST FEATURES:
+//Option to remove colors:
+// document.getElementById('blackWhite').addEventListener("click", ()=>{
+//   for(i=0; i<document.querySelectorAll('rect').length; i++){
+//     if (document.getElementById('Hydrogen').style.backgroundColor == ''){ //checks if the g element has inherited bg value (not visible by default)
+//       document.querySelectorAll('rect')[i].style.fill = 'white';
+//     }
+//
+//     if (document.querySelector('rect.He').style.fill == 'white'){
+//       document.querySelectorAll('rect')[i].style.fill = '';
+//     }
+//   }
+//   for(i=0; i<document.querySelectorAll('text').length; i++){
+//     if (document.getElementById('Hydrogen').style.backgroundColor == ''){
+//       document.querySelectorAll('text')[i].style.fill = 'black';
+//     }
+//     if (document.querySelector('rect.He').style.fill == 'white'){
+//       document.querySelectorAll('text')[i].style.fill = 'revert';
+//      console.log('bgcolorhelium not white')
+//     }
+//   }
+// })
