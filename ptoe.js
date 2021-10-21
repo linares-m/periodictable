@@ -1,5 +1,5 @@
 //TODO:
-// Keyboard navigation: Add selectability to each element when focused on with keyboard
+// Add access keys for each elements
 window.addEventListener("DOMContentLoaded", elInfo)
 const elements = document.getElementsByTagName('g');
 
