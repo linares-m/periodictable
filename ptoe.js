@@ -1,13 +1,18 @@
 //TODO:
 // Keyboard navigation: Add selectability to each element when focused on with keyboard
 window.addEventListener("DOMContentLoaded", elInfo)
-const selector = document.getElementsByTagName('g');
+const elements = document.getElementsByTagName('g');
 
 //Update Info Pane with element info when element is clicked on:
 function elInfo(){
-  for (i=0; i < selector.length; i++){
-    selector[i].tabIndex = "";
-    selector[i].addEventListener("mouseover", function(){
+  for (i=0; i < elements.length; i++){
+    elements[i].tabIndex = "";
+//     elements[i].addEventListener('focus', function(){
+//       console.log(this);
+// })
+    elements[i].addEventListener("mouseover", hoverElement);
+    elements[i].addEventListener("focus", hoverElement);
+function hoverElement(){
       let datum = []
       datum = this.dataset;
       if (document.querySelector("#qD1").innerHTML == "") {
@@ -19,8 +24,11 @@ function elInfo(){
       else {
         null;
       }
-    })
-    selector[i].addEventListener("mousedown", function(){
+    }
+    elements[i].addEventListener("mousedown", selectElement);
+    elements[i].addEventListener("keypress", selectElement);
+
+function selectElement(){
       let datum = []
       datum = this.dataset
       if ((document.querySelector("#qD1").innerHTML == "")
@@ -43,21 +51,20 @@ function elInfo(){
       }
       this.style.outline = "2px dashed white"
       this.style.filter = "brightness(1.2)"
-    })
+    }
   }
 }
-
 //------------------------------------------------------------------------------
 //Create Category Filtering Menu:
-//Add each element's category name to an array 'acc'; this array will contain radio options.
-var acc = []
-for(i=0; i<selector.length; i++){
-  var cur = selector[i].dataset.category;
-  if(acc.includes(cur)===false){acc.push(cur)}
+//Add each element's category name to an array 'categories'; this array will contain radio options.
+var categories = []
+for(i=0; i<elements.length; i++){
+  var cur = elements[i].dataset.category;
+  if(categories.includes(cur)===false){categories.push(cur)}
 }
 //Create radio for filtering by category
 // NOTE: LABELS MUST BE APPENDED FIRST - you cannot insert labels into input elements
-const sortedCategories = acc.sort()
+const sortedCategories = categories.sort()
 var category = (d) => d
 d3.select("#radioContainer").selectAll("label")
 .data(sortedCategories)
@@ -70,14 +77,15 @@ d3.select("#radioContainer").selectAll("label")
 .attr("value", category)
 .attr("name", "categoryOptions")
 .attr("title", category)
+.attr("tabindex", "1")
 
 //Add event listeners for category radio input
 // NOTE: The htmlcollection is made up of 'input' elements - allows for switching
 //input type for future adaptations
 document.getElementById("none").addEventListener("click", function(){
   if(this.checked == true){
-    for(h=0; h<selector.length; h++){
-      selector[h].style.filter = "brightness(1)"
+    for(h=0; h<elements.length; h++){
+      elements[h].style.filter = "brightness(1)"
     }
   }
 })
@@ -94,8 +102,8 @@ for (i=1; i<radio.length; i++){
     const categorySelect = document.querySelectorAll(eval(categoryToHighlight));
     console.log(this.checked);
      if (this.checked == true){
-      for(k=0; k<selector.length; k++){
-        selector[k].style.filter = "brightness(.3)";
+      for(k=0; k<elements.length; k++){
+        elements[k].style.filter = "brightness(.3)";
         for(j=0; j<categorySelect.length; j++){
           categorySelect[j].style.filter = "brightness(1)";
         }
@@ -103,21 +111,24 @@ for (i=1; i<radio.length; i++){
     }
     if (this.checked == false){
       document.querySelector(querySelectRadioLabels).classList.replace('active', '');
-      for(j=0; j<selector.length; j++){
-        selector[j].style.filter = "brightness(1)";
+      for(j=0; j<elements.length; j++){
+        elements[j].style.filter = "brightness(1)";
       }
     }
   })
 }
 
 //Scripts for reset/filter button click events:
-document.getElementById('reset').addEventListener("click", ()=>{
-  for(i=0; i<selector.length; i++){
-    selector[i].style.outline = '';
-    selector[i].style.filter = 'brightness(1)';
+document.getElementById('reset').addEventListener("click", resetSelections);
+document.getElementById('reset').accessKey = 'r';
+console.log("'reset' access key: r");
+function resetSelections(){
+  for(i=0; i<elements.length; i++){
+    elements[i].style.outline = '';
+    elements[i].style.filter = 'brightness(1)';
     document.getElementById('none').checked = true;
   }
-})
+}
 
 //------------------------------------------------------------------------------
 
