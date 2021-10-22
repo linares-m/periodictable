@@ -16,7 +16,7 @@ function hoverElement(){
       let datum = []
       datum = this.dataset;
       if (document.querySelector("#qD1").innerHTML == "") {
-        document.querySelector("#cDH").innerHTML == "Classification Data"
+        document.querySelector("#cDH").innerHTML = "Classification Data"
         document.querySelector("#cD1").innerHTML = "Name: " + datum.name
         document.querySelector("#cD2").innerHTML = " Number: " + datum.number
         document.querySelector("#cD3").innerHTML = " Category: " + datum.category

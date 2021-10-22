@@ -1,14 +1,16 @@
 <!--
 TODOS:
-P1 items:
 1.  Add screen reading compatibility to each element
-a. remove title elements; creates repeat with Edge screenreader - COMPLETE
-b. when element has focus and inforeader displays its info, have screenreader read the inforeader content
-2. Add Category filter options - map options to classes - COMPLETE
-3. Explore accesskey mapping for keyboard accessibility
-4. Add activateability via tabthrough and keypress - COMPLETE
-5. Fix table window width
-6. Mobile - infoReader styled as window popup with close button
+  a. remove title elements; creates repeat with Edge screenreader - COMPLETE
+  b. when element has focus and inforeader displays its info, screenreader reads infopane
+2. Add Category filter options - COMPLETE
+3. Keyboard Accessibility
+   a. accesskeys for each element based on element number
+   b. arrow key navigation for elements
+   c. see more element info on keypress - COMPLETE
+5. Fix table window width - COMPLETE
+6. Mobile
+   a. infoReader styled as window popup with close button
 LESSONS:
 ADD DEFER TO SCRIPT TAG!!
 -->
@@ -31,7 +33,6 @@ ADD DEFER TO SCRIPT TAG!!
 		<main class="infoPane">
 			<!--header><h2>Info</h2></header-->
 			<div id="infoReader" class="infoPane">
-				<p id="tooltip"></p>
 				<div class="iRI"><p>Click on an element to see info about the element.</p><hr>
 				</div>
 				<div id="iR1">
@@ -62,11 +63,9 @@ ADD DEFER TO SCRIPT TAG!!
 			<section id="helpAbout">
 				<details closed id="about" tabindex="-1">
 					<summary>About</summary>
+           <h3>Features Coming Soon:</h3>
 					<ul>
-						<li>Wishlist Features:</li>
-						<li>keyboard 'tab-through' controls</li>
 						<li>screenreader compatibility</li>
-						<li>filter by category</li>
 						<li>search</li>
 					</ul>
 				</details>
