@@ -49,15 +49,10 @@ function selectElement(){
       this.style.filter = "brightness(1.2)"
     }
   }
-
-//----------------------------Help/About Section Scripts-----------------------//
 document.getElementById("help").addEventListener("keypress", helpAboutExpand)
 document.getElementById("help").addEventListener("click", helpAboutExpand)
-
-document.getElementById("about").addEventListener("keypress", helpAboutExpand)
-document.getElementById("about").addEventListener("click", helpAboutExpand)
-
 function helpAboutExpand(e){
+console.log('this:', e.target, '| closed? ', e.target.open);
   if (e.target.open == true){
    e.target.open = false;
 document.getElementById('infoReader').style.height = '660px';
@@ -113,8 +108,10 @@ let radio = document.getElementsByTagName("input");
 //function for category highlighting
 for (i=1; i<radio.length; i++){
   radio[i].addEventListener("change", function(){
+    console.log(this.id);
     var categoryToHighlight = `"[data-category='`+ this.id + `']"`;
     const categorySelect = document.querySelectorAll(eval(categoryToHighlight));
+    console.log(this.checked);
      if (this.checked == true){
       for(k=0; k<elements.length; k++){
         elements[k].style.filter = "brightness(.3)";
@@ -135,6 +132,7 @@ for (i=1; i<radio.length; i++){
 //Scripts for reset/filter button click events:
 document.getElementById('reset').addEventListener("click", resetSelections);
 document.getElementById('reset').accessKey = 'r';
+console.log("'reset' access key: r");
 function resetSelections(){
   for(i=0; i<elements.length; i++){
     elements[i].style.outline = '';

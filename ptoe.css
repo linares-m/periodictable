@@ -112,7 +112,18 @@ text-align: center;
   background-color: black;
   width: 358px;
 }
+#help:focus, #help:hover, #about:focus, #about:hover {
+   animation: .75s has-focus linear infinite alternate;
+}
 
+@keyframes has-focus {
+  from{
+     background-color: hsla(0, 50%, 50%, .6);
+}
+  to {
+     background-color: hsla(0, 0%, 0%, .6);
+}
+}
 #appHeader {
   position: absolute;
   top:-28px;
@@ -174,7 +185,7 @@ text-align: center;
   transition: .3s;
 }
 #reset:hover {
-  background-color: hsla(0, 0%, 50%, .6);
+  background-color: hsla(0, 50%, 50%, .6);
 }
 .mainArea{
   grid-area: ma;
@@ -220,5 +231,5 @@ h1, h2, h3, p {
 }
 
 g {
-  transition: .1s;
+  transition: .15s
 }
