@@ -170,6 +170,10 @@ text-align: center;
   color: white;
   bottom: 0px;
   right: 0px;
+  transition: .3s;
+}
+#reset:hover {
+  background-color: hsla(0, 0%, 50%, .6);
 }
 .mainArea{
   grid-area: ma;
