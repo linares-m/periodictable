@@ -1,10 +1,13 @@
 /*PERIODIC TABLE ELEMENTS STYLING*/
 
-text {
+text li{
   font-family: "Arbutus Slab";
   background-color: white;
 }
-
+li, details, summary{
+  font-family: "monospace";
+  font-size:18px;
+}
 .Rf text,.Db text, .Sg text, .Bh text,
 .Hs text, .Mt text, .K text, .Na text,
 .Rn text, .Xe text, .Fr text, .Cs text,

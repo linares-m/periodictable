@@ -35,12 +35,12 @@ ADD DEFER TO SCRIPT TAG!!
 	<div id="appContainer">
 		<main class="infoPane">
 			<!--header><h2>Info</h2></header-->
-			<div id="infoReader" class="infoPane">
+			<div id="infoReader" class="infoPane" accesskey="i" tabindex="5">
 				<div class="iRI"><p>Click on an element to see info about the element.</p>
 				</div>
 				<div id="iR1">
-					<header  accesskey="i"><h3><u id="cDH"></u></h3></header>
-					<p id="cD1"></p>
+					<header ><h3><u id="cDH"></u></h3></header>
+					<p id="cD1" ></p>
 					<p id="cD2"></p>
 					<p id="cD3"></p>
 				</div>
@@ -64,13 +64,14 @@ ADD DEFER TO SCRIPT TAG!!
 				</div>
 			</div>
 			<section id="helpAbout">
-				<details id="help" tabindex="1" closed>
+				<details id="help" tabindex="1"  accesskey="" closed>
 					<summary tabindex='-1'>Help</summary>
 					<h3>Keyboard Access Keys</h3>
 					<ul>
-						<li>Navigate to the "Element Info" Pane: "i"</li>
-						<li>Navigate to the "Filter By Category" Menu: "n"</li>
-						<li>Reset All Selections: "r"</li>
+						<li>Navigate to the "Element Info Reader": Access Key "i"</li>
+						<li>Navigate to the "Filter By Category" Menu: Access Key "C"</li>
+						<li>Reset All Selections: Access Key "R"</li>
+						<li>Navigate to the "Help": Access Key "H"</li>
 					</ul>
 				</details>
 				<details closed id="about" tabindex="-4">
@@ -92,7 +93,7 @@ ADD DEFER TO SCRIPT TAG!!
 					<!-- <button type="button" name="black-white" id="blackWhite">Toggle Black-White Filter</button> -->
 					<label for="none" >
 						none
-						<input type="radio" id="none"  value="none" name="categoryOptions" title="none" accesskey="c"  tabindex="-1">
+						<input type="radio" id="none"  value="none" name="categoryOptions" title="none" accesskey="c" tabindex="-1">
 					</label>
 					<button type="button" name="reset" id="reset" tabindex="-2">Reset All Selections</button>
 				</div>

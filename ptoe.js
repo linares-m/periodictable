@@ -51,6 +51,7 @@ function selectElement(){
   }
 document.getElementById("help").addEventListener("keypress", helpAboutExpand)
 document.getElementById("help").addEventListener("click", helpAboutExpand)
+document.getElementById("help").addEventListener("focus", helpAboutExpand)
 function helpAboutExpand(e){
 console.log('this:', e.target, '| closed? ', e.target.open);
   if (e.target.open == true){
