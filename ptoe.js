@@ -2,14 +2,9 @@
 // Add access keys for each elements
 window.addEventListener("DOMContentLoaded", elInfo)
 const elements = document.getElementsByTagName('g');
-
 //Update Info Pane with element info when element is clicked on:
 function elInfo(){
   for (i=0; i < elements.length; i++){
-    elements[i].tabIndex = "";
-//     elements[i].addEventListener('focus', function(){
-//       console.log(this);
-// })
     elements[i].addEventListener("mouseover", hoverElement);
     elements[i].addEventListener("focus", hoverElement);
 function hoverElement(){
@@ -27,6 +22,7 @@ function hoverElement(){
     }
     elements[i].addEventListener("mousedown", selectElement);
     elements[i].addEventListener("keypress", selectElement);
+    elements[i].tabindex = 3;
 
 function selectElement(){
       let datum = []
@@ -53,6 +49,26 @@ function selectElement(){
       this.style.filter = "brightness(1.2)"
     }
   }
+
+//----------------------------Help/About Section Scripts-----------------------//
+document.getElementById("help").addEventListener("keypress", helpAboutExpand)
+document.getElementById("help").addEventListener("click", helpAboutExpand)
+
+document.getElementById("about").addEventListener("keypress", helpAboutExpand)
+document.getElementById("about").addEventListener("click", helpAboutExpand)
+
+function helpAboutExpand(e){
+  if (e.target.open == true){
+   e.target.open = false;
+document.getElementById('infoReader').style.height = '660px';
+document.getElementById('helpAbout').style.transform = 'translateY(0px)'
+}
+else{
+e.target.open = true;
+document.getElementById('infoReader').style.height = '500px';
+document.getElementById('helpAbout').style.transform = 'translateY(-200px)'
+}
+}
 }
 //------------------------------------------------------------------------------
 //Create Category Filtering Menu:
@@ -77,9 +93,9 @@ d3.select("#radioContainer").selectAll("label")
 .attr("value", category)
 .attr("name", "categoryOptions")
 .attr("title", category)
-.attr("tabindex", "1")
+.attr("tabindex", -1)
 
-//Add event listeners for category radio input
+//---------------Add event listeners for category radio selection---------------
 // NOTE: The htmlcollection is made up of 'input' elements - allows for switching
 //input type for future adaptations
 document.getElementById("none").addEventListener("click", function(){
@@ -97,10 +113,8 @@ let radio = document.getElementsByTagName("input");
 //function for category highlighting
 for (i=1; i<radio.length; i++){
   radio[i].addEventListener("change", function(){
-    console.log(this.id);
     var categoryToHighlight = `"[data-category='`+ this.id + `']"`;
     const categorySelect = document.querySelectorAll(eval(categoryToHighlight));
-    console.log(this.checked);
      if (this.checked == true){
       for(k=0; k<elements.length; k++){
         elements[k].style.filter = "brightness(.3)";
@@ -121,7 +135,6 @@ for (i=1; i<radio.length; i++){
 //Scripts for reset/filter button click events:
 document.getElementById('reset').addEventListener("click", resetSelections);
 document.getElementById('reset').accessKey = 'r';
-console.log("'reset' access key: r");
 function resetSelections(){
   for(i=0; i<elements.length; i++){
     elements[i].style.outline = '';
@@ -129,6 +142,8 @@ function resetSelections(){
     document.getElementById('none').checked = true;
   }
 }
+
+
 
 //------------------------------------------------------------------------------
 
