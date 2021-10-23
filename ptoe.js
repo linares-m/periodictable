@@ -61,7 +61,7 @@ document.getElementById('helpAbout').style.transform = 'translateY(0px)'
 else{
 e.target.open = true;
 document.getElementById('infoReader').style.height = '500px';
-document.getElementById('helpAbout').style.transform = 'translateY(-200px)'
+document.getElementById('helpAbout').style.transform = 'translateY(-180px)'
 }
 }
 }
