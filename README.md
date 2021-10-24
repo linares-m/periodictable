@@ -1,9 +1,9 @@
 # periodictable 
 
 Project Objectives:
- -Familiarize with D3js
- -Learn about accessibility standards and semantic HTML
- -Develop a useful study tool 
+ <li>Get familar with D3.js</li>
+ <li>Learn about accessibility standards and semantic HTML</li>
+ <li>Develop a useful study tool</li> 
   
 
 This project is still in development; making a web app fully accessible is a task that lasts its' whole lifecycle. 
