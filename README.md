@@ -1,6 +1,6 @@
-# periodictable 
+# Accessible Periodic Table of Elements 
 
-Project Objectives:
+<h2>Project Objectives:</h2>
  <li>Get familar with D3.js</li>
  <li>Learn about accessibility standards and semantic HTML</li>
  <li>Develop a useful study tool</li> 
