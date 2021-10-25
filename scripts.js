@@ -1,4 +1,4 @@
-//-------------------------CREATE TABLE--------------------------------------------
+//-------------------------CREATE TABLE-----------------------------------------
 window.addEventListener("DOMContentLoaded", elCreate());
 async function elCreate(){
   const ptoe = d3.select("svg"),
@@ -5086,9 +5086,9 @@ async function elCreate(){
   meltingPoint = (d) => d.melt, color = (d) => d.color,  appearance = (d) => d.appearance,
   boilingPoint = (d) => d.boil, color =  (d) => d.color, density = (d) => d.density, discoveredBy = (d) => d.discovered_by, electronegPauling = (d) => d.electronegativity_pauling,
   electronConfig = (d) => d.electron_configuration, electronAffin =  (d) => d.electron_affinity, shells =  (d) => d.shells, molarHeat = (d) => d.molar_heat, source = (d) => d.source;
-  //Table Dimensions
+  //Table Dimensions---------------------------------------------------
   ptoe.attr("width", tbW).attr("height", tbH);
-  //Create Element Containers to Wrap Rect and Texst
+  //Create Element Containers to Wrap Element Rect components----------
   ptoe.selectAll("g")
   .data(elData)
   .enter().append("g")
@@ -5108,7 +5108,7 @@ async function elCreate(){
   .attr("aria-labelledby", number)
   .attr("aria-describedby", symbol)
   .attr("alt", name)
-  //Create Element Rectangles with Labels and Set Attributes
+  //Create Element Rectangles with Labels and Set Attributes---------
   d3.selectAll("g").append("rect")
   .attr("class", symbol)
   .attr("data-category", category)
@@ -5118,7 +5118,7 @@ async function elCreate(){
   .attr("title", name)
   .attr("data-class", "rect")
 
-  //Create Symbol Labels
+  //Create Symbol Labels--------------------------------------------
   d3.selectAll("g").append("text")
   .text(symbol)
   .attr("role", "presentation")
@@ -5132,7 +5132,7 @@ async function elCreate(){
   .style("font-family", "'arbutus slab'")
   .style("font-size", elW/2)
 
-  //Create Number Labels
+  //Create Number Labels--------------------------------------------
   d3.selectAll("g").append("text")
   .text(number)
   .attr("role", "presentation")
@@ -5146,7 +5146,7 @@ async function elCreate(){
   .style("font-family", "'arbutus slab'")
   .style("font-size", elW/4)
 
-  //Create Atomic Mass Labels
+  //Create Atomic Mass Labels--------------------------------------
   d3.selectAll("g").append("text")
   .text(atomicMassRound)
   .attr("role", "presentation")
@@ -5160,17 +5160,6 @@ async function elCreate(){
   .style("font-family", "'arbutus slab'")
   .style("font-size", elW/4);
 
-  // //ACCESSIBILITY STANDARDS
-  // //Create Element Title
-  //   d3.selectAll("g").append("title")
-  //   .text(name)
-  //   .attr("id", number)
-  //   .attr("class", symbol)
-  //   .attr("data-class", "ariaTitle")
-  //   .attr("data-category", category)
-  //   .attr("x", ((d) => d.xpos * (elW + gap)+(elW/5)))
-  //   .attr("y", ((d) => d.ypos * (elH + gap)+(elH/1.5)))
-
     d3.selectAll("g").append("desc")
     .text(name)
     .attr("id", symbol)
@@ -5180,8 +5169,7 @@ async function elCreate(){
     .attr("x", ((d) => d.xpos * (elW + gap)+(elW/5)))
     .attr("y", ((d) => d.ypos * (elH + gap)+(elH/1.5)))
 }
-//------------------------------------------------------------------------------
-
+//-----------------------CREATE SCRIPTS FOR UPDATING INFO PANEL------------------------------------------------
 window.addEventListener("DOMContentLoaded", elInfo)
 const elements = document.getElementsByTagName('g');
 //Update Info Pane with element info when element is clicked on:
@@ -5248,8 +5236,7 @@ function elInfo(){
   }
 }
 
-//------------------------------------------------------------------------------
-//Create Category Filtering Menu:
+//---------------------------CREATE CATEGORY MENU OPTIONS-----------------------
 //Add each element's category name to an array 'categories'; this array will contain radio options.
 var categories = []
 for(i=0; i<elements.length; i++){
@@ -5273,7 +5260,7 @@ d3.select("#radioContainer").selectAll("label")
 .attr("title", category)
 .attr("tabindex", -1)
 
-//---------------Add event listeners for category radio selection---------------
+//---------------ADD EVENT LISTENERS TO CATEGORY OPTIONS------------------------
 // NOTE: The htmlcollection is made up of 'input' elements - allows for switching
 //input type for future adaptations
 document.getElementById("none").addEventListener("click", function(){
