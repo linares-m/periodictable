@@ -1,4 +1,4 @@
-# Accessible Periodic Table of Elements 
+# Periodic Table of Elements 
 
 <h2>Project Objectives:</h2>
  <li>Get familar with D3.js</li>
