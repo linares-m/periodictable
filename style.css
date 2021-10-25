@@ -1,5 +1,9 @@
 /*PERIODIC TABLE ELEMENTS STYLING*/
-
+svg {
+  outline: 5px solid black
+  width: 1248
+  height 748.8
+}
 text li{
   font-family: "Arbutus Slab";
   background-color: white;
@@ -15,9 +19,15 @@ li, details, summary{
 .Ir text, .Og text, .Uue text, .Ba text,
 .Rb text, .I text, .At text, .Lr text,
 .Os text, .Br text, .N text, .Re text,
-.Tl text, .Ru text, .Ts text,
+.Tl text, .Ru text, .Ts text, .Ds text,
+.Rg text, .Cn text, .Nh text, .Fl text,
+.Mc text, .Lv text,
 [data-category = actinide]:not(.Ac, .Pa, .Th) text {
   fill: lightgray;
+}
+
+.Uue text {
+  transform: translateX(-10px);
 }
 
 /*INTERACTIVE ELEMENTS STYLING*/
@@ -29,12 +39,6 @@ g:hover, g:focus {
   border: 2px double white;
   filter: brightness(1.2);
   outline: 2px dashed white;
-}
-
-#helpAbout details:hover{
-  cursor: default;
-  text-decoration-style: wavy;
-  height: min-content;
 }
 
 .infoPane::-webkit-scrollbar,
@@ -77,6 +81,10 @@ main {
   background-color: hsla(0, 0%, 0%, .2);
 }
 
+.infoPane a {
+  color: white;
+}
+
 /* .infoPane header {
 width: min-content;
 height: 30px;
@@ -115,17 +123,21 @@ text-align: center;
   background-color: black;
   width: 358px;
 }
-#help:focus, #help:hover, #about:focus, #about:hover {
-   animation: .75s has-focus linear infinite alternate;
+#help {
+  animation: .75s has-focus linear infinite alternate;
+}
+
+#help:hover, #help:focus {
+  animation: none;
 }
 
 @keyframes has-focus {
   from{
-     background-color: hsla(0, 50%, 50%, .6);
-}
+    background-color: hsla(0, 50%, 50%, .6);
+  }
   to {
-     background-color: hsla(0, 0%, 0%, .6);
-}
+    background-color: hsla(0, 0%, 0%, .6);
+  }
 }
 #appHeader {
   position: absolute;
